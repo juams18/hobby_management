@@ -5,7 +5,7 @@
 		<class>models.Hobby</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/daily_report_system?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/hobby_management?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
 			<property name="javax.persistence.jdbc.user" value="hobuser"/>
 			<property name="javax.persistence.jdbc.password" value="hobpass"/>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>

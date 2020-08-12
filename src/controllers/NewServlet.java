@@ -36,7 +36,7 @@ public class NewServlet extends HttpServlet {
         h.setReport_date(new Date(System.currentTimeMillis()));
         request.setAttribute("hobby", h);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/_form.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/new.jsp");
         rd.forward(request, response);
 
     }

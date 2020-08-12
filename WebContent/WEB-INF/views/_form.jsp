@@ -8,10 +8,10 @@
     <option value="book">本</option>
     <option value="game">ゲーム</option>
     <option value="movie">映画</option>
-    <option value="${hobby.kind}" >映画</option>
 </select>
-<input type="text" name="kind" value="${hobby.kind}" />
 <br /><br />
+<!--<input type="text" name="kind" value="${hobby.kind}" />   -->
+
 
 <label for="title">タイトル</label><br />
 <input type="text" name="title" value="${hobby.title}" />
