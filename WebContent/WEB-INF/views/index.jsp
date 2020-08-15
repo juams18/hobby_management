@@ -2,12 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
-        <c:if test="${flush != null}">
-            <div id="flush_success">
-                <c:out value="${flush}"></c:out>
-            </div>
-        </c:if>
-        <h2>Hobbyの一覧</h2>
+         <h2>Hobbyの一覧</h2>
         <table id="hobby_list">
             <tbody>
                 <tr>
@@ -15,22 +10,37 @@
                     <th class="kind">分類</th>
                     <th class="title">タイトル</th>
                     <th class="report_date">登録日</th>
-                    <th class="delete">削除</th>
+                    <th class="control">操作</th>
                 </tr>
                 <c:forEach var="hobby" items="${hobbies}" varStatus="status">
                     <tr>
                         <td class="Amazon_picture">ここに画像</td>
                         <td class="kind">${hobby.kind}</td>
                         <td class="title">${hobby.title}</td>
-                        <td class="report_date">${hobby.created_at}</td>
-                        <td class="delete">削除(ポップアップあとから付ける)</td>
+                        <td class="report_date">${hobby.report_date}</td>
+                        <td class="control">
+                            <a href="<c:url value='/edit?id=${hobby.id}' />">編集(画像)</a>
+
+
+                            <a href="#" onclick="confirmDestroy();">削除(画像)</a>
+                            <form method="POST" action="${pageContext.request.contextPath}/destroy?id=${hobby.id}'">
+                                <input type="hidden" name="_token" value="${_token}" />
+                            </form>
+                            <script>
+                            function confirmDestroy() {
+                                if(confirm("本当に削除してよろしいですか？")) {
+                                    document.forms[1].submit();
+                                    }
+                                }
+
+                            </script>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
 
-        <!-- 以下のリンク違うかも -->
-        <p><a href="<c:url value='/new' />">新規登録</a></p>
+         <p><a href="<c:url value='/new' />">新規登録</a></p>
 
     </c:param>
 </c:import>
