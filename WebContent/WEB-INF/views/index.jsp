@@ -3,6 +3,10 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
          <h2>Hobbyの一覧</h2>
+         <img src="<c:url value='/WEB-INF/views/editbutton.png' />"><!-- 相対パス -->
+         <img src="/hobby_management/WEB-INF/views/editbutton.png"><!-- 絶対パス -->
+
+
         <table id="hobby_list">
             <tbody>
                 <tr>
@@ -19,17 +23,19 @@
                         <td class="title">${hobby.title}</td>
                         <td class="report_date">${hobby.report_date}</td>
                         <td class="control">
+
+                            <img src="editbutton.png">
                             <a href="<c:url value='/edit?id=${hobby.id}' />">編集(画像)</a>
 
-
+                            <img src="deletebutton.png">
                             <a href="#" onclick="confirmDestroy();">削除(画像)</a>
-                            <form method="POST" action="${pageContext.request.contextPath}/destroy?id=${hobby.id}'">
+                            <form method="POST" action="${pageContext.request.contextPath}/destroy?id=${hobby.id}">
                                 <input type="hidden" name="_token" value="${_token}" />
                             </form>
                             <script>
                             function confirmDestroy() {
                                 if(confirm("本当に削除してよろしいですか？")) {
-                                    document.forms[1].submit();
+                                    document.forms[<c:out value ="${status.index}"/>].submit();
                                     }
                                 }
 

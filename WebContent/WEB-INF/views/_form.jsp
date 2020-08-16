@@ -5,10 +5,10 @@
 
 <label for="kind">分類</label><br />
 <select name="kind">
-    <option value="space"></option>
-    <option value="book" <c:out value='${hobby.kind=="book"? "selected":""}' /> >本</option>
-    <option value="game" <c:out value='${hobby.kind=="game"? "selected":""} '/> >ゲーム</option>
-    <option value="movie"<c:out value='${hobby.kind=="movie"? "selected":""}' /> >映画</option>
+    <option value="空白"></option>
+    <option value="本" <c:out value='${hobby.kind=="本"? "selected":""}' /> >本</option>
+    <option value="ゲーム" <c:out value='${hobby.kind=="ゲーム"? "selected":""} '/> >ゲーム</option>
+    <option value="映画"<c:out value='${hobby.kind=="映画"? "selected":""}' /> >映画</option>
 </select>
 <br /><br />
 <!--<input type="text" name="kind" value="${hobby.kind}" />   -->
