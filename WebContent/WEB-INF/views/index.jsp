@@ -3,9 +3,7 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
          <h2>Hobbyの一覧</h2>
-         <img src="<c:url value='/WEB-INF/views/editbutton.png' />"><!-- 相対パス -->
-         <img src="/hobby_management/WEB-INF/views/editbutton.png"><!-- 絶対パス -->
-
+         <img src="<c:url value='/img/editbutton.png' />" width="50">
 
         <table id="hobby_list">
             <tbody>
