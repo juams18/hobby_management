@@ -3,7 +3,6 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
          <h2>Hobbyの一覧</h2>
-         <img src="<c:url value='/img/editbutton.png' />" width="50">
 
         <table id="hobby_list">
             <tbody>
@@ -22,11 +21,9 @@
                         <td class="report_date">${hobby.report_date}</td>
                         <td class="control">
 
-                            <img src="editbutton.png">
-                            <a href="<c:url value='/edit?id=${hobby.id}' />">編集(画像)</a>
+                            <a href="<c:url value='/edit?id=${hobby.id}' />"><img src="<c:url value='/img/editbutton.png' />" width="50"></a>
 
-                            <img src="deletebutton.png">
-                            <a href="#" onclick="confirmDestroy();">削除(画像)</a>
+                            <a href="#" onclick="confirmDestroy();"><img src="<c:url value='/img/deletebutton.png' />" width="50"></a>
                             <form method="POST" action="${pageContext.request.contextPath}/destroy?id=${hobby.id}">
                                 <input type="hidden" name="_token" value="${_token}" />
                             </form>
