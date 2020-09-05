@@ -65,6 +65,7 @@ public class Rakuten {
 
         String urlRaw = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?";
 
+        String largeImageUrl = null;
         //修正前String urlRaw = "https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?";
 
         try {
@@ -124,6 +125,7 @@ public class Rakuten {
 
                 //読み込んだ文字列を[response]に追記
                 response.append(inputLine);
+                System.out.println("responseは"+response);
             }
 
             //デバック用
@@ -136,16 +138,38 @@ public class Rakuten {
              ObjectMapper mapper = new ObjectMapper();
              //以下String LargeImageurlまでコピペ。responseをmapにキャスト
              Map reqMap =    mapper.readValue(response.toString(), new TypeReference<Map>() {});
+             System.out.println("reqMapは"+reqMap);
+
              //mapを配列にキャスト
              ArrayList items = (ArrayList) reqMap.get("Items");
+             System.out.println("itemsは"+items);
+
              //配列をマップにキャスト
              Map firstElem = (Map)items.get(0);
+             System.out.println("firstElemは"+firstElem);
+
              //検索して1つ目にヒットしたitemの情報をitemマップに保存
-             Map item = (Map)firstElem.get("Item");
+             Map<String,String> item = (Map)firstElem.get("Item");
+             System.out.println("itemは"+item);
+
+
+
+
              //LargeImageUrlの値を保存。
-             String largeImageUrl = (String) item.get("largeImageUrl");
+//             largeImageUrl = (String) item.get("largeImageUrl");
+             largeImageUrl = (String) item.get("mediumImageUrls");
 
              System.out.println("largeImageUrlは"+largeImageUrl);
+
+             for (String key : item.keySet()) {
+                 System.out.println(key );
+             }
+
+             for(String val : item.values()){
+                 System.out.println(val);
+             }
+
+
 
             in.close();
 
@@ -155,9 +179,6 @@ public class Rakuten {
             e.printStackTrace();
         }
 
-        //デバック用.以下追記
-       // System.out.println("最後のreturnしているlargeImageUrlの中身は"+ largeImageUrl);
-        System.out.println("largeImageUrlは"+largeImageUrl);
         return largeImageUrl;
     }
 

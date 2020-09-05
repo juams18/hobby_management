@@ -49,9 +49,9 @@ public class Hobby {
     @Column(name = "report_date", nullable = false)
     private Date report_date;
 
-    //amazonの画像へのハイパーリンク（AmazonAPIから新規登録・更新時に受け取る）
-    @Column(name = "amazon_picture")
-    private String amazon_picture;
+    //rakutenの画像へのハイパーリンク（rakutenAPIから新規登録・更新時に受け取る）
+    @Column(name = "rakuten_picture")
+    private String rakuten_picture;
 
     public Integer getId() {
         return id;
@@ -73,8 +73,8 @@ public class Hobby {
         return report_date;
     }
 
-    public String getAmazon_picture() {
-        return amazon_picture;
+    public String getRakuten_picture() {
+        return rakuten_picture;
     }
 
     public void setId(Integer id) {
@@ -97,8 +97,8 @@ public class Hobby {
         this.report_date = report_date;
     }
 
-    public void setAmazon_picture(String amazon_picture) {
-        this.amazon_picture = amazon_picture;
+    public void setRakuten_picture(String rakuten_picture) {
+        this.rakuten_picture = rakuten_picture;
     }
 
 

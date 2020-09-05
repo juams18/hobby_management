@@ -47,6 +47,8 @@ public class CreateServlet extends HttpServlet {
             h.setTitle(request.getParameter("title"));
             h.setContent(request.getParameter("content"));
             h.setKind(request.getParameter("kind"));
+            //楽天画像URL取得用追記
+            h.setRakuten_picture(getRakutenUrl("title"));
 
             em.getTransaction().begin();
             em.persist(h);
