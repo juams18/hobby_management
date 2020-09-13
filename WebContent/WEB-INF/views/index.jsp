@@ -7,7 +7,7 @@
         <table id="hobby_list">
             <tbody>
                 <tr>
-                    <th class="Amazon_picture">画像用将来スペース</th>
+                    <th class="Amazon_picture">イメージ</th>
                     <th class="kind">分類</th>
                     <th class="title">タイトル</th>
                     <th class="report_date">登録日</th>
@@ -15,7 +15,7 @@
                 </tr>
                 <c:forEach var="hobby" items="${hobbies}" varStatus="status">
                     <tr>
-                        <td class="Amazon_picture">ここに画像</td>
+                        <td class="Amazon_picture"><img src = "${hobby.rakuten_picture}"></td>
                         <td class="kind">${hobby.kind}</td>
                         <td class="title">${hobby.title}</td>
                         <td class="report_date">${hobby.report_date}</td>
@@ -42,6 +42,7 @@
         </table>
 
          <p><a href="<c:url value='/new' />">新規登録</a></p>
+         <p><a href="<c:url value='/import' />">インポート</a></p>
 
     </c:param>
 </c:import>

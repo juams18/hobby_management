@@ -36,6 +36,9 @@ public class CreateServlet extends HttpServlet {
             EntityManager em = DBUtil.createEntityManager();
 
             Hobby h = new Hobby();
+            Rakuten api = new Rakuten();
+            RakutenCreds creds = api.getCredentials();
+
 
             Date report_date = new Date(System.currentTimeMillis());
             String rd_str = request.getParameter("report_date");
@@ -48,7 +51,7 @@ public class CreateServlet extends HttpServlet {
             h.setContent(request.getParameter("content"));
             h.setKind(request.getParameter("kind"));
             //楽天画像URL取得用追記
-            h.setRakuten_picture(getRakutenUrl("title"));
+            h.setRakuten_picture(api.getFromKeyword(creds,h.getTitle()));
 
             em.getTransaction().begin();
             em.persist(h);

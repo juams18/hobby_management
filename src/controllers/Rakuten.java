@@ -125,11 +125,7 @@ public class Rakuten {
 
                 //読み込んだ文字列を[response]に追記
                 response.append(inputLine);
-                System.out.println("responseは"+response);
             }
-
-            //デバック用
-            //System.out.println(response.toString());
 
             //RequestBuilderと同じようにMapに変換するのがよい★★
             //ここに２を編集して追記///////////////////////////////////
@@ -138,48 +134,32 @@ public class Rakuten {
              ObjectMapper mapper = new ObjectMapper();
              //以下String LargeImageurlまでコピペ。responseをmapにキャスト
              Map reqMap =    mapper.readValue(response.toString(), new TypeReference<Map>() {});
-             System.out.println("reqMapは"+reqMap);
 
              //mapを配列にキャスト
              ArrayList items = (ArrayList) reqMap.get("Items");
-             System.out.println("itemsは"+items);
 
              //配列をマップにキャスト
              Map firstElem = (Map)items.get(0);
-             System.out.println("firstElemは"+firstElem);
 
              //検索して1つ目にヒットしたitemの情報をitemマップに保存
-             Map<String,String> item = (Map)firstElem.get("Item");
-             System.out.println("itemは"+item);
+             Map<String,Object> item = (Map)firstElem.get("Item");
 
-
-
+             //配列にキャスト
+             ArrayList mediumImageUrls =(ArrayList) item.get("mediumImageUrls");
+             Map<String,String> imageUrl =(Map<String,String>) mediumImageUrls.get(0);
+             String rakutenImageUrl = imageUrl.get("imageUrl");
 
              //LargeImageUrlの値を保存。
 //             largeImageUrl = (String) item.get("largeImageUrl");
-             largeImageUrl = (String) item.get("mediumImageUrls");
-
-             System.out.println("largeImageUrlは"+largeImageUrl);
-
-             for (String key : item.keySet()) {
-                 System.out.println(key );
-             }
-
-             for(String val : item.values()){
-                 System.out.println(val);
-             }
-
-
 
             in.close();
-
+            return rakutenImageUrl;
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-
-        return largeImageUrl;
+        return null;
     }
 
 }
