@@ -43,6 +43,7 @@
 
          <p><a href="<c:url value='/new' />">新規登録</a></p>
          <p><a href="<c:url value='/import' />">インポート</a></p>
+         <p><a href="<c:url value='/export' />" download = "hobby.csv">エクスポート</a></p>
 
     </c:param>
 </c:import>
