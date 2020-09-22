@@ -50,15 +50,12 @@ public class Export extends HttpServlet {
         //Hobbiesテーブルの内容を全て取得
         List<Hobby> hobbies = em.createNamedQuery("getAllHobbies", Hobby.class).getResultList();
 
-
-
         //Listを文字列に変換①
         for (int i = 0; i < hobbies.size(); i++) {
 
             csvExport.append(hobbies.get(i));
             System.out.println(i+"行目；"+csvExport);
             csvExport.append(NEW_LINE);
-
 
             /*
             csvExport.append(h.getTitle());
@@ -72,9 +69,11 @@ public class Export extends HttpServlet {
 
         em.close();
 
+        // 文字変換追加
+        response.setCharacterEncoding("SHIFT-JIS");
 
         //CSV出力内容を返す
-      //  response.getWriter().append(csvExport);
+       response.getWriter().append(csvExport.toString());
     }
 
 }

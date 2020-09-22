@@ -101,6 +101,20 @@ public class Hobby {
         this.rakuten_picture = rakuten_picture;
     }
 
+    public String toString(){
 
+        //カンマ
+        String COMMA = ",";
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(this.getTitle());
+        sb.append(COMMA);
+        sb.append(this.getKind());
+        sb.append(COMMA);
+        sb.append(this.getContent());
+
+        return sb.toString();
+    }
 
 }

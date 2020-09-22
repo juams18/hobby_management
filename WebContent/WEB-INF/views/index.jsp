@@ -25,6 +25,7 @@
 
                             <a href="#" onclick="confirmDestroy();"><img src="<c:url value='/img/deletebutton.png' />" width="50"></a>
                             <form method="POST" action="${pageContext.request.contextPath}/destroy?id=${hobby.id}">
+
                                 <input type="hidden" name="_token" value="${_token}" />
                             </form>
                             <script>
