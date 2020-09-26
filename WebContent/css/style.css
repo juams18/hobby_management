@@ -95,13 +95,13 @@ button {
 }
 
 
-table#hobby_list th{
+table#myTable th{
     width:30%;
     padding:10px 2%;
     background-color:#BAD3FF;
 }
 
-table#hobby_list td{
+table#myTable td{
     width:29%;
     padding: 10px 2%;
 }
@@ -142,33 +142,33 @@ h1 a {
     color: #eeeeee;
 }
 
-table#hobby_list th{
+table#myTable th{
     font-weight:bold;
     padding:10px 2%;
 }
 
 
-table#hobby_list .Amazon_picture{
+table#myTable .Amazon_picture{
     width:300px;
 
 }
 
-table#hobby_list .kind{
+table#myTable .kind{
     width:100px;
 
 }
 
-table#hobby_list .title{
+table#myTable .title{
     width:500px;
 
 }
 
 
-table#hobby_listt .report_date{
+table#myTable .report_date{
     width:100px;
 }
 
-table#hobby_listt .control{
+table#myTable .control{
     width:100px;
 }
 

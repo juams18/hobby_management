@@ -44,7 +44,7 @@ public class DestroyServlet extends HttpServlet {
 //            Message m = em.find(Message.class, Integer.parseInt(request.getParameter("id")));
 
 
-               //１がいけてほしい
+               //１がいけてほしい。
           System.out.println("1は"+Integer.parseInt(request.getParameter("id")));
           System.out.println("2は"+(Integer)(request.getSession().getAttribute("hobby_id")));
 //          System.out.println("3は"+Integer.parseInt(request.getParameter("hobby_id")));
